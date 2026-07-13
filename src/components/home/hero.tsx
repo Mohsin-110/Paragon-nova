@@ -43,7 +43,7 @@ export function Hero() {
             chosen well.
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-md text-base text-muted">
-            Marque edits down thousands of products to the ones worth owning —
+            ParagonNova edits down thousands of products to the ones worth owning —
             across audio, home, apparel, tech, and outdoors. No endless scroll,
             just the shortlist.
           </motion.p>
@@ -80,7 +80,7 @@ export function Hero() {
           className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] lg:aspect-square"
         >
           <Image
-            src="https://picsum.photos/seed/marque-hero/1000/1000"
+            src="https://res.cloudinary.com/v5qnf2rl/image/upload/v1783985799/images_u0fejl.jpg"
             alt="Featured product still life"
             fill
             priority

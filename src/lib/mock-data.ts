@@ -8,42 +8,44 @@ export const categories: Category[] = [
     slug: "audio",
     name: "Audio",
     description: "Headphones, speakers, and turntables",
-    image: img("marque-audio", 800, 600),
+    // 👉 Paste your real category photo URL below, or leave as-is to keep the placeholder.
+    
+    image: "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981386/360_F_505193254_3JQTXRqqvDnwm94Iqg4RYHI7rnci5rNS_cdckud.jpg",
     productCount: 42,
   },
   {
     slug: "home",
     name: "Home & Living",
     description: "Kitchen, decor, and everyday objects",
-    image: img("marque-home", 800, 600),
+    image: "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981297/samples/chair-and-coffee-table.jpg",
     productCount: 118,
   },
   {
     slug: "apparel",
     name: "Apparel",
     description: "Considered basics and outerwear",
-    image: img("marque-apparel", 800, 600),
+    image: "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983372/DROPTWOLinenShirtGraniteGrey_1172copy_xhnbtn.jpg",
     productCount: 76,
   },
   {
     slug: "tech",
     name: "Tech & Accessories",
     description: "Cases, chargers, and small electronics",
-    image: img("marque-tech", 800, 600),
+    image: "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982071/Bare_Skin_Case_for_iPhone_15_Pro_and_15_Pro_Max_-_Full-Grain_Leather_Case_with_MagSafe_for_iPhone_15_Pro_and_15_Pro_Max_-_Saddle_Brown_-_Patina_-_New_wsxzg9.jpg",
     productCount: 63,
   },
   {
     slug: "outdoors",
     name: "Outdoors",
     description: "Gear built for daily carry and travel",
-    image: img("marque-outdoors", 800, 600),
+    image: "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982126/Eddie-Bauer-Soft-Shell-Jacket-Black-Model_xgjfpb.jpg",
     productCount: 39,
   },
   {
     slug: "beauty",
     name: "Beauty & Care",
     description: "Skincare and grooming staples",
-    image: img("marque-beauty", 800, 600),
+    image: "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982221/71ORuF4SSXL._AC_UF1000_1000_QL80__dp7tln.jpg",
     productCount: 54,
   },
 ];
@@ -70,6 +72,9 @@ function makeProduct(p: {
   flags?: Partial<
     Pick<Product, "isNew" | "isBestSeller" | "isTrending" | "isFlashSale">
   >;
+  // 👉 NEW: pass real photo URLs here to override the placeholder images.
+  // If omitted, the product falls back to picsum placeholders automatically.
+  images?: string[];
 }): Product {
   const slug = p.id;
   return {
@@ -83,7 +88,11 @@ function makeProduct(p: {
     currency: "USD",
     rating: p.rating,
     reviewCount: p.reviewCount,
-    images: [img(slug + "-1"), img(slug + "-2"), img(slug + "-3"), img(slug + "-4")],
+    // Uses your real images if provided, otherwise falls back to placeholders.
+    images:
+      p.images && p.images.length > 0
+        ? p.images
+        : [img(slug + "-1"), img(slug + "-2"), img(slug + "-3"), img(slug + "-4")],
     description:
       "Made from responsibly sourced materials and finished by hand, this piece is built to earn a permanent spot in daily use rather than a drawer. Every detail — from the stitching to the hardware — was chosen to age well.",
     features: [
@@ -133,6 +142,16 @@ export const products: Product[] = [
     reviewCount: 312,
     tags: ["wireless", "noise-cancelling"],
     flags: { isBestSeller: true, isFlashSale: true },
+    // 👉 Paste your real photo URLs here, e.g.:
+    // images: [
+    //   "https://res.cloudinary.com/your-cloud-name/image/upload/v123/aria-1.jpg",
+    //   "https://res.cloudinary.com/your-cloud-name/image/upload/v123/aria-2.jpg",
+    // ],
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981655/51eT5n6URQL._AC_UF1000_1000_QL80__njqsbt.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983238/51rpbVmi9XL._AC_UF894_1000_QL80__hqx0th.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983238/0081006114507_yfl03q.jpg",
+    ],
   }),
   makeProduct({
     id: "field-tote",
@@ -144,6 +163,11 @@ export const products: Product[] = [
     reviewCount: 128,
     tags: ["canvas", "everyday-carry"],
     flags: { isNew: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983338/D81138-208-High-3_vmt5zs.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983337/D81138-208-High-2_voiz8m.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983337/D81138-208-Low-1_fcjkrx.png",
+    ],
   }),
   makeProduct({
     id: "table-lamp",
@@ -156,6 +180,11 @@ export const products: Product[] = [
     reviewCount: 87,
     tags: ["lighting", "low-stock"],
     flags: { isTrending: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981729/images_jbaxlr.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981729/images_jbaxlr.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981729/images_jbaxlr.jpg",
+    ],
   }),
   makeProduct({
     id: "trail-jacket",
@@ -167,6 +196,9 @@ export const products: Product[] = [
     reviewCount: 201,
     tags: ["waterproof", "packable"],
     flags: { isBestSeller: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982126/Eddie-Bauer-Soft-Shell-Jacket-Black-Model_xgjfpb.jpg",
+    ],
   }),
   makeProduct({
     id: "ceramic-pourover",
@@ -178,6 +210,9 @@ export const products: Product[] = [
     reviewCount: 156,
     tags: ["kitchen", "handmade"],
     flags: { isNew: true, isTrending: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981789/images_n395g3.jpg",
+    ],
   }),
   makeProduct({
     id: "recycled-backpack",
@@ -190,6 +225,9 @@ export const products: Product[] = [
     reviewCount: 94,
     tags: ["recycled", "laptop-sleeve"],
     flags: { isFlashSale: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982174/1MAB003_0BLK_nt2so6.jpg",
+    ],
   }),
   makeProduct({
     id: "wool-throw",
@@ -200,6 +238,10 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 63,
     tags: ["wool", "low-stock"],
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983264/Wool_throw_camel_1_2000x_y7sv8a.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981887/Ellei_Home_Handmade_Merino_Wool_Blankets-14_4c27d0a1-3f6e-4542-82df-d677624c14ad_1000x1000_d7yk2h.jpg"
+    ],
   }),
   makeProduct({
     id: "charge-dock",
@@ -211,6 +253,11 @@ export const products: Product[] = [
     reviewCount: 210,
     tags: ["wireless-charging"],
     flags: { isTrending: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982033/6736d74953698217_WIZ052ttWH-ultracharge-modular-charging-dock-webgg-01-hero_cqzk27.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983386/45788d81f2cd2655_BBB014-SA-ultracharge-modular-charging-dock_E2_80_8B-webgg-01-hero_qkkgig.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983386/33fc60b04204a622_WIZ052ttBK-ultracharge-modular-charging-dock-webgg-01-hero_sgpyfo.jpg",
+    ],
   }),
   makeProduct({
     id: "linen-shirt",
@@ -222,6 +269,11 @@ export const products: Product[] = [
     reviewCount: 142,
     tags: ["linen", "summer"],
     flags: { isNew: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983373/VenroyFlatLay-Mens-OversizedLinenLSShirt-GraniteGrey_qwq6zb.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983372/DROPTWOLinenShirtGraniteGrey_1172copy_xhnbtn.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983372/DN1CA-L006-700-S26_DN_ECOMSS26_DAY28653__LAVORATA_iprd9s.jpg"
+    ],
   }),
   makeProduct({
     id: "grooming-kit",
@@ -234,6 +286,11 @@ export const products: Product[] = [
     reviewCount: 178,
     tags: ["travel-size"],
     flags: { isFlashSale: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982221/71ORuF4SSXL._AC_UF1000_1000_QL80__dp7tln.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982221/71ORuF4SSXL._AC_UF1000_1000_QL80__dp7tln.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982221/71ORuF4SSXL._AC_UF1000_1000_QL80__dp7tln.jpg",
+    ],
   }),
   makeProduct({
     id: "oak-stool",
@@ -245,6 +302,10 @@ export const products: Product[] = [
     reviewCount: 51,
     tags: ["solid-wood"],
     flags: { isBestSeller: true },
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783981928/Hampton_Counter_Stool_White_Oak1_hb741x.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783983305/FH-246442-002_FRT_1__05919.1779289025_oipmtb.jpg",
+    ],
   }),
   makeProduct({
     id: "phone-case",
@@ -255,6 +316,11 @@ export const products: Product[] = [
     rating: 4.2,
     reviewCount: 266,
     tags: ["leather"],
+    images: [
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982071/Bare_Skin_Case_for_iPhone_15_Pro_and_15_Pro_Max_-_Full-Grain_Leather_Case_with_MagSafe_for_iPhone_15_Pro_and_15_Pro_Max_-_Saddle_Brown_-_Patina_-_New_wsxzg9.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982071/Bare_Skin_Case_for_iPhone_15_Pro_and_15_Pro_Max_-_Full-Grain_Leather_Case_with_MagSafe_for_iPhone_15_Pro_and_15_Pro_Max_-_Saddle_Brown_-_Patina_-_New_wsxzg9.jpg",
+      "https://res.cloudinary.com/v5qnf2rl/image/upload/v1783982071/Bare_Skin_Case_for_iPhone_15_Pro_and_15_Pro_Max_-_Full-Grain_Leather_Case_with_MagSafe_for_iPhone_15_Pro_and_15_Pro_Max_-_Saddle_Brown_-_Patina_-_New_wsxzg9.jpg",
+    ],
   }),
 ];
 
