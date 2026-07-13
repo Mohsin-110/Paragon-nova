@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Marque — The good stuff, chosen well",
+  title: "ParagonNovaLLC — The good stuff, chosen well",
   description:
     "A curated marketplace across audio, home, apparel, tech, and outdoors.",
 };

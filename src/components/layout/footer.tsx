@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2">
-            <span className="font-serif text-2xl text-ink">Marque</span>
+            <span className="font-serif text-2xl text-ink">ParagonNovaLLC</span>
             <p className="mt-3 max-w-xs text-sm text-muted">
               A curated marketplace across audio, home, apparel, tech, and more —
               chosen well, not endless.

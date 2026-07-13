@@ -33,7 +33,7 @@ export function Header() {
         </button>
 
         <Link href="/" className="font-serif text-2xl tracking-tight text-ink">
-          Marque
+          ParagonNovaLLC
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -147,7 +147,7 @@ export function Header() {
           )}
         >
           <div className="mb-8 flex items-center justify-between">
-            <span className="font-serif text-xl text-ink">Marque</span>
+            <span className="font-serif text-xl text-ink">ParagonNovaLLC</span>
             <button onClick={() => setMobileOpen(false)} aria-label="Close menu">
               <FiX size={22} />
             </button>
